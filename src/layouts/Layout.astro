@@ -8,6 +8,8 @@ interface Props {
 }
 
 let { title, description } = Astro.props;
+
+description ??= "GoZen, the modular video editor.";
 ---
 
 <!doctype html>
