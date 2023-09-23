@@ -1,15 +1,13 @@
 ---
 import NavBar from "../components/NavBar.astro";
+import { SEO } from "astro-seo";
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-let { title } = Astro.props;
-
-if (title) title += " - ";
-else title = "";
-title += "GoZen";
+let { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +18,34 @@ title += "GoZen";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/gozen-website/logo.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      titleDefault="GoZen"
+      titleTemplate="%s - GoZen"
+      {title}
+      {description}
+    />
+    <style is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      @layer components {
+        .c-button {
+          @apply rounded-md border-2 border-accent-400 bg-accent-500 p-3 text-text hover:bg-accent-400;
+        }
+
+        .c-hero {
+          @apply bg-primary p-20;
+        }
+      }
+
+      @font-face {
+        font-family: "TitleFont";
+        src: url("/gozen-website/URWGothic-Book.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body class="bg-background text-text">
     <NavBar />
@@ -34,26 +59,3 @@ title += "GoZen";
     >
   </body>
 </html>
-
-<style is:global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-  @layer components {
-    .c-button {
-      @apply bg-accent-500 border-accent-400 hover:bg-accent-400 rounded-md border-2 p-3 text-text;
-    }
-
-    .c-hero {
-      @apply bg-primary p-20;
-    }
-  }
-
-  @font-face {
-    font-family: "TitleFont";
-    src: url("/gozen-website/URWGothic-Book.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-</style>
