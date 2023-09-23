@@ -2,30 +2,23 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="GoZen">
-  <div class="flex flex-col gap-5 bg-secondary p-20">
-    <div class="flex">
-      <div class="flex-grow-[1]">
-        <h1 class="my-2 font-[TitleFont] text-8xl text-text">GoZen</h1>
-        <h2 class="my-2 text-2xl text-text">
-          The open-source modular video editor.
-        </h2>
-        <div class="flex gap-1">
-          <a href="/gozen-website/download/" class="c-button"
-            >Use it for free!</a
-          >
-          <a
-            href="https://github.com/voylin/GoZen"
-            target="_blank"
-            class="c-button border-2 border-accent bg-transparent"
-            >Source code</a
-          >
-        </div>
-      </div>
-      <div class="flex flex-col justify-center">
-        <img src="/gozen-website/logo.svg" alt="GoZen Logo" class="h-40" />
+<Layout>
+  <div class="c-hero flex">
+    <div class="flex flex-grow-[1] flex-col gap-2">
+      <h1 class="font-[TitleFont] text-8xl text-text">GoZen</h1>
+      <h2 class="text-2xl text-text">The open-source modular video editor.</h2>
+      <div class="flex gap-2">
+        <a href="/gozen-website/download/" class="c-button">Download</a>
+        <a
+          href="https://github.com/voylin/GoZen"
+          target="_blank"
+          class="c-button border-accent-400 border-2 bg-transparent"
+          >Source code</a
+        >
       </div>
     </div>
+    <div class="flex flex-col justify-center">
+      <img src="/gozen-website/logo.svg" alt="GoZen Logo" class="h-40" />
+    </div>
   </div>
-  <span class="opacity-5">&copy; 2023 Aden Pun</span>
 </Layout>

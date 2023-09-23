@@ -1,9 +1,15 @@
 ---
+import NavBar from "../components/NavBar.astro";
+
 interface Props {
-  title: string;
+  title?: string;
 }
 
-const { title } = Astro.props;
+let { title } = Astro.props;
+
+if (title) title += " - ";
+else title = "";
+title += "GoZen";
 ---
 
 <!doctype html>
@@ -17,7 +23,15 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-background text-text">
-    <slot />
+    <NavBar />
+    <main>
+      <slot />
+    </main>
+    <a
+      href="https://adenpun.net/"
+      target="_blank"
+      class="text-white hover:text-gray-100">&copy; 2023 Aden Pun</a
+    >
   </body>
 </html>
 
@@ -28,13 +42,17 @@ const { title } = Astro.props;
 
   @layer components {
     .c-button {
-      @apply rounded-md border-2 border-accent-light bg-accent p-3 text-text hover:bg-accent-light;
+      @apply bg-accent-500 border-accent-400 hover:bg-accent-400 rounded-md border-2 p-3 text-text;
+    }
+
+    .c-hero {
+      @apply bg-primary p-20;
     }
   }
 
   @font-face {
     font-family: "TitleFont";
-    src: url("/URWGothic-Book.woff") format("woff");
+    src: url("/gozen-website/URWGothic-Book.woff") format("woff");
     font-weight: normal;
     font-style: normal;
   }
