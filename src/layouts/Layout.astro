@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="text-text bg-background">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer components {
+    .c-button {
+      @apply text-text hover:bg-accent-light border-accent-light rounded-md border-2 bg-accent p-3;
+    }
+  }
+
+  @font-face {
+    font-family: "TitleFont";
+    src: url("/URWGothic-Book.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
