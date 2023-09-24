@@ -19,12 +19,7 @@ description ??= "GoZen, the modular video editor.";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/gozen-website/logo.svg" />
     <meta name="generator" content={Astro.generator} />
-    <SEO
-      titleDefault="GoZen"
-      titleTemplate="%s - GoZen"
-      {title}
-      {description}
-    />
+    <SEO titleDefault="GoZen" titleTemplate="%s - GoZen" {title} {description} />
     <style is:global>
       @tailwind base;
       @tailwind components;
@@ -36,7 +31,7 @@ description ??= "GoZen, the modular video editor.";
         }
 
         .c-hero {
-          @apply bg-primary p-20;
+          @apply bg-primary p-5 sm:p-10 md:p-20;
         }
       }
 
@@ -53,10 +48,6 @@ description ??= "GoZen, the modular video editor.";
     <main>
       <slot />
     </main>
-    <a
-      href="https://adenpun.net/"
-      target="_blank"
-      class="text-white hover:text-gray-100">&copy; 2023 Aden Pun</a
-    >
+    <a href="https://adenpun.net/" target="_blank" class="text-white hover:text-gray-100">&copy; 2023 Aden Pun</a>
   </body>
 </html>
